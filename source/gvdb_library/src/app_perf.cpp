@@ -707,7 +707,7 @@ void TimeX::SetSystemTime ()
 		_strdate ( datebuf );
 		#endif
 	#endif
-	#if (defined(__linux__) || defined(__CYGWIN__))
+	#if (defined(__linux__) || defined(__CYGWIN__) || defined(__APPLE__))
 		time_t tt; 
 		struct tm tim;
 		tt = time(NULL);	

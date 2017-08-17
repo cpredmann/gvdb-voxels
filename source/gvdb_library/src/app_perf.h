@@ -153,6 +153,10 @@
 		typedef __int64       mstime;
 		typedef __int64       sjtime;
 	#endif	
+    #ifdef __APPLE__
+        typedef int64_t       mstime;
+        typedef int64_t       sjtime;
+    #endif
 
 	#include <string>	
 	#ifdef _MSC_VER
@@ -177,7 +181,14 @@
 		#define MIN_SCALAR		60000000000LL
 		#define HR_SCALAR		3600000000000LL
 		#define	DAY_SCALAR		86400000000000LL
-	#endif	
+	#endif
+    #ifdef __APPLE__
+		#define MSEC_SCALAR		1000000LL
+		#define SEC_SCALAR		1000000000LL
+		#define MIN_SCALAR		60000000000LL
+		#define HR_SCALAR		3600000000000LL
+		#define	DAY_SCALAR		86400000000000LL
+    #endif
 
 	#define ACC_SEC			0
 	#define ACC_MSEC		1

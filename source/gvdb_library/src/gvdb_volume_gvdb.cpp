@@ -2855,7 +2855,7 @@ void VolumeGVDB::ResizeDepthBuf( int chan, int width, int height )
 	
 	cudaCheck(cuGraphicsGLRegisterBuffer(&mRenderBuf[chan].grsc, mRenderBuf[chan].glid, 0), "cuGraphicsGLRegisterBuffer", "ResizeDepthBuf" );
 	cudaCheck(cuGraphicsMapResources(1, &mRenderBuf[chan].grsc, 0), "cudaGraphicsMapResources", "ResizeDepthBuf" );
-	cudaCheck(cuGraphicsResourceGetMappedPointer(&mRenderBuf[chan].gpu, &mRenderBuf[chan].size, mRenderBuf[chan].grsc), "cuGraphicsResourceGetMappedPointer", "ResizeDepthBuf" );
+	cudaCheck(cuGraphicsResourceGetMappedPointer(&mRenderBuf[chan].gpu, (size_t*)&mRenderBuf[chan].size, mRenderBuf[chan].grsc), "cuGraphicsResourceGetMappedPointer", "ResizeDepthBuf" );
 	cudaCheck(cuGraphicsUnmapResources(1, &mRenderBuf[chan].grsc, 0), "cudaGraphicsUnmapRsrc", "ResizeDepthBuf" );
 }
 

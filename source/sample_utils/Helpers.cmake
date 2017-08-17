@@ -144,14 +144,16 @@ endfunction()
 # Find one or more of a specific file in the given folder
 # Returns the file name w/o path
 
-macro(_FIND_FILE targetVar searchDir nameWin64 nameLnx cnt)
+macro(_FIND_FILE targetVar searchDir nameWin64 nameLnx nameOsx cnt)
   unset ( fileList )  
   unset ( nameFind )
   unset ( targetVar )  
   if ( WIN32 ) 
      SET ( nameFind ${nameWin64} )
-  else()
+  elseif( LINUX )
      SET ( nameFind ${nameLnx} )
+  else()
+     SET ( nameFind ${nameOsx} )
   endif()
   if ( "${nameFind}" STREQUAL ""  )
     MATH (EXPR ${cnt} "${${cnt}}+1" )	

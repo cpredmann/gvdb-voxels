@@ -10,7 +10,7 @@ unset( UTILS_FOUND CACHE)
 set ( SAMPLE_UTIL_DIR "${CMAKE_MODULE_PATH}" CACHE PATH "Path to sample_utils" )
 
 set ( OK_UTIL "0" )
-_FIND_FILE ( UTIL_FILES SAMPLE_UTIL_DIR "nv_gui.h" "nv_gui.h" OK_UTIL )
+_FIND_FILE ( UTIL_FILES SAMPLE_UTIL_DIR "nv_gui.h" "nv_gui.h" "nv_gui.h" OK_UTIL )
 
 if ( OK_UTIL EQUAL 1 )
     set ( UTILS_FOUND "YES" )
